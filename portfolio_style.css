@@ -10,7 +10,7 @@ body {
 
 /* Header Section */
 header {
-    background-color: #16213E; 
+    background-color: #031b5d; 
     padding: 20px;
 }
 
@@ -50,7 +50,7 @@ header .nav-links a:hover {
     justify-content: space-between;
     padding: 5px 20px; /* Keep the padding to maintain a compact look */
     align-items: center;
-    background-color: rgb(18, 18, 62);
+    background-color: rgb(0, 0, 32);
 }    
 
 .hero-content h1 {
@@ -130,7 +130,7 @@ header .nav-links a:hover {
 
 /* Services Section */
 .services {
-    background-color: rgb(18, 18, 62);
+    background-color: rgb(0, 0, 32);
     padding: 60px 50px;
     text-align: center;
 }
@@ -149,7 +149,7 @@ header .nav-links a:hover {
 }
 
 .service-box {
-    background-color: rgb(27, 27, 81);
+    background-color: rgb(18, 18, 62);
     border-radius: 10px;
     width: 250px;
     height: 300px;
@@ -192,9 +192,9 @@ header .nav-links a:hover {
 
 /* Projects Section */
 .projects {
+    background-color: rgb(18, 18, 62);
     padding: 60px 50px;
     text-align: center;
-    background-color: rgb(27, 27, 81);
 }
 
 .projects h1 {
@@ -205,41 +205,116 @@ header .nav-links a:hover {
 
 .project-boxes {
     display: flex;
-    gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 20px;
 }
 
 .project-box {
-    background-color: rgb(18, 18, 62);
-    padding: 20px;
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
     border-radius: 10px;
-    width: 250px;
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    perspective: 1000px; /* Set up for 3D space */
+}
+
+.project-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.project-box:hover .project-content {
+    transform: rotateY(180deg); /* Flip the card on hover */
+}
+
+.project-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.project-box:hover .project-image img {
+    transform: scale(1.1);
+    filter: brightness(50%); /* Darken the image */
+}
+
+/* Overlay - Make it expand for full text visibility */
+/* Overlay - Make it expand for full text visibility */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    margin-bottom: 30px;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, height 0.3s ease-in-out;
+    transform: rotateY(180deg); /* Hide overlay on the front */
+    overflow: visible; /* Allow content to grow */
 }
 
-.project-box h3 {
+.project-box:hover .overlay {
+    opacity: 1; /* Show overlay when hovering */
+    transform: rotateY(0deg); /* Rotate the overlay to the front */
+    height: auto; /* Make the overlay expand to fit content */
+}
+
+/* Reduce text size for better fitting */
+.overlay h3 {
+    font-size: 18px;  /* Smaller title */
+    margin-bottom: 8px;
+    line-height: 1.4; /* Improved line spacing for better readability */
+}
+
+.overlay p {
+    font-size: 12px;  /* Smaller description text */
+    margin-bottom: 10px;
+    line-height: 1.5; /* Increased line height for clarity */
+}
+
+.overlay .btn {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #ff5722;
     color: white;
-}
-
-.project-box p {
-    color: lightgray;
-    margin-bottom: 15px;
-}
-
-.project-box .btn {
-    background-color: rgb(77, 77, 219);
-    color: white;
-    padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
+    font-size: 12px;  /* Smaller button text */
+    transition: background 0.3s;
 }
 
-.project-box .btn:hover {
-    background-color: rgb(18, 18, 62);
+.overlay .btn:hover {
+    background-color: #e64a19;
 }
+
+
+/* Ensure overlay has proper spacing and visibility */
+.project-box:hover .overlay {
+    opacity: 1;
+    height: auto; /* Expands height dynamically */
+    padding: 20px;
+}
+
 
 /* Skills-Certificates Section */
 .skills-certificates {
@@ -310,7 +385,7 @@ header .nav-links a:hover {
 .contact {
     padding: 10px 10px;
     text-align: center;
-    background-color: rgb(27, 27, 81);
+    background-color: rgb(0, 0, 32);
 }
 
 .contact h1 {
@@ -389,7 +464,7 @@ footer p {
 /* Feedback Section Styles with Blue Theme */
 .feedback {
     padding: 20px;
-    background-color: #1a1a2e;  /* Dark blue background */
+    background-color: rgb(18, 18, 62);  /* Dark blue background */
     color: white;  /* White text for contrast */
     text-align: center;
     margin-top: 50px;
@@ -453,7 +528,7 @@ footer p {
     color: white;
     text-decoration: none;
     font-size: 1.2rem;
-    position: relative; /* Allow positioning of the underline */
+    position: relative; 
 }
 
 .nav-links a:hover {
@@ -466,8 +541,8 @@ footer p {
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: rgb(77, 77, 219); /* Color of the underline */
-    bottom: -5px; /* Positioning it right below the text */
+    background-color: rgb(77, 77, 219); 
+    bottom: -5px; 
     left: 0;
     transform: scaleX(0);
     transform-origin: bottom right;
@@ -479,14 +554,11 @@ footer p {
     transform-origin: bottom left;
 }
 
-/* Remove gap between Projects and Feedback */
 .projects {
-    margin-bottom: 0; /* Remove any bottom margin from projects section */
+    margin-bottom: 0; 
 }
-
-/* Ensure Feedback section has no top margin */
 .feedback {
-    margin-top: 0; /* Remove space between projects and feedback */
+    margin-top: 0; 
 }
 
 
